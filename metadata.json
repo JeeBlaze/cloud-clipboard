@@ -1,0 +1,6 @@
+{
+  "name": "CloudClip",
+  "description": "Copy on one device. Paste anywhere. Transfer text, images, and files between devices with a simple 6-digit code.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
