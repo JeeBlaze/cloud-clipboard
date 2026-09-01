@@ -12,6 +12,7 @@ import { PrivacyModal } from './components/PrivacyModal';
 import { TermsModal } from './components/TermsModal';
 import { SqlSchemaModal } from './components/SqlSchemaModal';
 import { uploadFileToClipboard } from './lib/uploader';
+import { apiUrl } from './lib/api';
 import { ViewTab, ContentType, CreateClipboardResponse, RetrieveClipboardResponse } from './types';
 import { 
   Send, 
@@ -61,7 +62,7 @@ export default function App() {
   const handleSendText = async (textContent: string, expiryMinutes: number, burnOnRead: boolean) => {
     setIsCreating(true);
     try {
-      const res = await fetch('/api/clipboard/create', {
+      const res = await fetch(apiUrl('/api/clipboard/create'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -149,7 +150,7 @@ export default function App() {
     setRetrievedItem(null);
 
     try {
-      const res = await fetch(`/api/clipboard/${encodeURIComponent(code)}`);
+      const res = await fetch(apiUrl(`/api/clipboard/${encodeURIComponent(code)}`));
       const contentType = res.headers.get('content-type') || '';
 
       if (!res.ok) {

@@ -1,5 +1,6 @@
 import { CreateClipboardResponse } from '../types';
 import { MAX_FILE_SIZE_BYTES, MAX_FILE_SIZE_MB } from './constants';
+import { apiUrl } from './api';
 
 export interface UploadProgressCallback {
   (progressPercent: number, uploadedBytes: number, totalBytes: number): void;
@@ -85,7 +86,7 @@ export async function uploadFileToClipboard(options: UploadOptions): Promise<Cre
   // 2. Initialize upload session
   let initRes: Response;
   try {
-    initRes = await fetch('/api/upload/init', {
+    initRes = await fetch(apiUrl('/api/upload/init'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -134,7 +135,7 @@ export async function uploadFileToClipboard(options: UploadOptions): Promise<Cre
         formData.append('chunkIndex', chunkIndex.toString());
         formData.append('chunk', chunkBlob, `chunk-${chunkIndex}.bin`);
 
-        const chunkRes = await fetch('/api/upload/chunk', {
+        const chunkRes = await fetch(apiUrl('/api/upload/chunk'), {
           method: 'POST',
           body: formData,
         });
@@ -164,7 +165,7 @@ export async function uploadFileToClipboard(options: UploadOptions): Promise<Cre
   // 4. Finalize upload
   let finalizeRes: Response;
   try {
-    finalizeRes = await fetch('/api/upload/finalize', {
+    finalizeRes = await fetch(apiUrl('/api/upload/finalize'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

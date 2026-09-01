@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Download, ArrowLeft, Clock, File, Image as ImageIcon, FileText, Archive, CheckCircle2, AlertCircle, Check } from 'lucide-react';
 import { formatBytes, formatTimeRemaining, getFileCategoryIcon } from '../lib/utils';
+import { apiUrl } from '../lib/api';
 import { ContentType } from '../types';
 
 interface FileRetrieveCardProps {
@@ -74,7 +75,7 @@ export const FileRetrieveCard: React.FC<FileRetrieveCardProps> = ({
       }
 
       // 2. Fetch the binary stream from server
-      const targetUrl = downloadUrl || `/api/clipboard/${code}/download`;
+      const targetUrl = apiUrl(downloadUrl || `/api/clipboard/${code}/download`);
       console.count("[DOWNLOAD FETCH REQUEST]");
       console.log("[REAL DOWNLOAD URL]", targetUrl);
       console.log("[REAL DOWNLOAD METHOD]", "GET");

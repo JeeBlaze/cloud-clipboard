@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Copy, Check, Plus, Clock, ShieldAlert, Share2, ArrowRight, Laptop, Smartphone, Trash2 } from 'lucide-react';
 import { copyToClipboard, formatTimeRemaining } from '../lib/utils';
+import { apiUrl } from '../lib/api';
 import { ContentType } from '../types';
 
 interface CodeDisplayProps {
@@ -60,7 +61,7 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({
     if (confirm('Are you sure you want to permanently delete this clipboard right now?')) {
       setBurning(true);
       try {
-        await fetch(`/api/clipboard/${code}`, { method: 'DELETE' });
+        await fetch(apiUrl(`/api/clipboard/${code}`), { method: 'DELETE' });
         onBurnNow ? onBurnNow() : onCreateAnother();
       } catch (err) {
         onCreateAnother();
