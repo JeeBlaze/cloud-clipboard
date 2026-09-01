@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Clipboard, Send, Download, HelpCircle, Menu, X, ShieldCheck } from 'lucide-react';
+import { Clipboard, Send, Download, HelpCircle, Menu, X } from 'lucide-react';
 import { ViewTab } from '../types';
 
 interface NavbarProps {
@@ -16,31 +16,31 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate }) => {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white border-b border-slate-200 shadow-xs">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <header className="sticky top-0 z-40 w-full border-b border-slate-200/70 bg-white/80 backdrop-blur-xl">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[4.5rem] flex items-center justify-between">
         {/* Brand Logo */}
         <button
           id="nav-brand-logo"
           onClick={() => handleNavClick('home')}
-          className="flex items-center gap-2.5 group text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg p-1"
+          className="flex items-center gap-2.5 group text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-xl p-1"
         >
-          <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white shadow-sm group-hover:bg-indigo-700 transition-colors">
+          <div className="w-8 h-8 rounded-xl bg-slate-950 flex items-center justify-center text-white shadow-md shadow-slate-950/15 group-hover:bg-indigo-600 transition-colors">
             <Clipboard className="w-4 h-4" />
           </div>
-          <span className="font-bold text-xl leading-tight tracking-tight text-slate-900">
+          <span className="font-semibold text-xl leading-tight tracking-[-0.04em] text-slate-950">
             CloudClip
           </span>
         </button>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <nav className="hidden md:flex items-center rounded-full border border-slate-200/80 bg-white/80 p-1 text-sm font-medium text-slate-600 shadow-sm">
           <button
             id="nav-link-home"
             onClick={() => handleNavClick('home')}
-            className={`transition-colors cursor-pointer ${
+            className={`rounded-full px-3 py-1.5 transition-colors cursor-pointer ${
               currentTab === 'home'
-                ? 'text-indigo-600 font-semibold'
-                : 'hover:text-indigo-600'
+                ? 'bg-slate-950 text-white font-semibold'
+                : 'hover:text-slate-950'
             }`}
           >
             Home
@@ -48,10 +48,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate }) => {
           <button
             id="nav-link-send"
             onClick={() => handleNavClick('send')}
-            className={`transition-colors cursor-pointer ${
+            className={`rounded-full px-3 py-1.5 transition-colors cursor-pointer ${
               currentTab === 'send'
-                ? 'text-indigo-600 font-semibold'
-                : 'hover:text-indigo-600'
+                ? 'bg-slate-950 text-white font-semibold'
+                : 'hover:text-slate-950'
             }`}
           >
             Send
@@ -59,10 +59,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate }) => {
           <button
             id="nav-link-retrieve"
             onClick={() => handleNavClick('retrieve')}
-            className={`transition-colors cursor-pointer ${
+            className={`rounded-full px-3 py-1.5 transition-colors cursor-pointer ${
               currentTab === 'retrieve'
-                ? 'text-indigo-600 font-semibold'
-                : 'hover:text-indigo-600'
+                ? 'bg-slate-950 text-white font-semibold'
+                : 'hover:text-slate-950'
             }`}
           >
             Retrieve
@@ -70,10 +70,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate }) => {
           <button
             id="nav-link-how-it-works"
             onClick={() => handleNavClick('how-it-works')}
-            className={`transition-colors cursor-pointer ${
+            className={`rounded-full px-3 py-1.5 transition-colors cursor-pointer ${
               currentTab === 'how-it-works'
-                ? 'text-indigo-600 font-semibold'
-                : 'hover:text-indigo-600'
+                ? 'bg-slate-950 text-white font-semibold'
+                : 'hover:text-slate-950'
             }`}
           >
             How It Works
@@ -85,7 +85,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate }) => {
           <button
             id="nav-btn-retrieve"
             onClick={() => handleNavClick('retrieve')}
-            className="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-lg transition-colors cursor-pointer border border-transparent hover:border-slate-200"
+            className="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-xl transition-colors cursor-pointer"
           >
             <span className="flex items-center gap-1.5">
               <Download className="w-4 h-4 text-slate-500" />
@@ -95,7 +95,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate }) => {
           <button
             id="nav-btn-send"
             onClick={() => handleNavClick('send')}
-            className="px-4 py-2 text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-sm transition-colors cursor-pointer"
+            className="px-4 py-2 text-sm font-semibold text-white bg-slate-950 hover:bg-slate-800 rounded-xl shadow-lg shadow-slate-950/15 transition-colors cursor-pointer"
           >
             <span className="flex items-center gap-1.5">
               <Send className="w-4 h-4" />

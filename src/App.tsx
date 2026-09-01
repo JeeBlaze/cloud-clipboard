@@ -226,7 +226,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 font-sans text-slate-900 selection:bg-indigo-600 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#f7f8fc] font-sans text-slate-950 selection:bg-indigo-600 selection:text-white">
       {/* Navigation */}
       <Navbar
         currentTab={currentTab}
@@ -237,32 +237,36 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* VIEW 1: HOME */}
         {currentTab === 'home' && (
-          <div className="space-y-16 animate-in fade-in duration-200">
+          <div className="space-y-20 animate-in fade-in duration-200">
             {/* Hero Section */}
-            <div className="text-center max-w-3xl mx-auto space-y-4 pt-2 sm:pt-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1]">
-                Copy on one device. <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-600">
-                  Paste anywhere.
+            <div className="text-center max-w-4xl mx-auto space-y-5 pt-4 sm:pt-10">
+              <div className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-white/80 px-3 py-1.5 text-xs font-semibold text-indigo-700 shadow-sm shadow-indigo-950/[0.03]">
+                <ShieldCheck className="h-3.5 w-3.5" />
+                Private by default. No account required.
+              </div>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-slate-950 tracking-[-0.055em] leading-[0.98]">
+                Move what matters.
+                <span className="block bg-gradient-to-r from-indigo-600 via-violet-600 to-fuchsia-600 bg-clip-text text-transparent pb-1">
+                  Leave nothing behind.
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed pt-1">
-                Transfer text, images, and files between your devices instantly using a simple 6-digit access code.
+              <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Send text and files from any device with a private six-digit code. Your clip disappears on your schedule.
               </p>
 
               {/* Primary Call to Action buttons */}
-              <div className="flex flex-wrap items-center justify-center gap-3.5 pt-4">
+              <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
                 <button
                   id="hero-btn-send"
                   onClick={() => {
                     setCurrentTab('send');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="px-6 py-3.5 rounded-xl font-bold text-base text-white bg-indigo-600 hover:bg-indigo-700 shadow-lg shadow-indigo-200/80 active:scale-95 transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-3 rounded-xl font-semibold text-sm text-white bg-slate-950 hover:bg-slate-800 shadow-xl shadow-slate-950/15 active:scale-[0.98] transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   <span>Send Something</span>
@@ -274,7 +278,7 @@ export default function App() {
                     setCurrentTab('retrieve');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="px-6 py-3.5 rounded-xl font-bold text-base text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-sm active:scale-95 transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-3 rounded-xl font-semibold text-sm text-slate-700 bg-white hover:bg-slate-50 border border-slate-200/80 shadow-sm active:scale-[0.98] transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <Download className="w-4 h-4 text-slate-500" />
                   <span>Retrieve Something</span>
@@ -283,10 +287,26 @@ export default function App() {
             </div>
 
             {/* Quick Interactive Clipboard Hub on Homepage */}
-            <div className="max-w-2xl mx-auto">
-              <div className="bg-white/95 rounded-2xl border border-slate-200 shadow-xl shadow-slate-200/50 p-6 sm:p-8 backdrop-blur-sm">
+            <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.82fr_1.18fr] overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white shadow-2xl shadow-slate-950/[0.07]">
+              <div className="relative overflow-hidden bg-slate-950 px-7 py-8 text-white sm:px-10 sm:py-12">
+                <div className="absolute -left-20 -top-24 h-64 w-64 rounded-full bg-indigo-600/40 blur-3xl" />
+                <div className="absolute -bottom-24 right-0 h-56 w-56 rounded-full bg-violet-500/25 blur-3xl" />
+                <div className="relative flex h-full flex-col justify-between gap-12">
+                  <div className="space-y-5">
+                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-200">One private handoff</span>
+                    <h2 className="max-w-sm text-3xl font-semibold tracking-[-0.04em] leading-tight">Your content, available exactly when you need it.</h2>
+                    <p className="max-w-sm text-sm leading-relaxed text-slate-300">Create a temporary, single-purpose clipboard. No sign-up, device pairing, or inbox clutter.</p>
+                  </div>
+                  <div className="space-y-3 text-sm text-slate-200">
+                    <div className="flex items-center gap-3"><span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-xs font-bold">1</span> Add text or a file</div>
+                    <div className="flex items-center gap-3"><span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-xs font-bold">2</span> Share the six-digit code</div>
+                    <div className="flex items-center gap-3"><span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-xs font-bold">3</span> Retrieve from anywhere</div>
+                  </div>
+                </div>
+              </div>
+              <div className="p-5 sm:p-8 lg:p-10">
                 {/* Switchable Hub Tabs */}
-                <div className="flex items-center justify-center p-1 bg-slate-100 rounded-xl mb-6 max-w-sm mx-auto border border-slate-200/60">
+                <div className="flex items-center justify-center p-1 bg-slate-100 rounded-xl mb-7 max-w-sm border border-slate-200/60">
                   <button
                     onClick={() => {
                       setCreatedItem(null);
@@ -294,7 +314,7 @@ export default function App() {
                     }}
                     className={`flex-1 py-2 text-xs sm:text-sm font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                       sendSubTab === 'text' && !createdItem
-                        ? 'bg-white text-indigo-600 shadow-sm'
+                        ? 'bg-white text-slate-950 shadow-sm'
                         : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
@@ -308,7 +328,7 @@ export default function App() {
                     }}
                     className={`flex-1 py-2 text-xs sm:text-sm font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                       sendSubTab === 'file' && !createdItem
-                        ? 'bg-white text-indigo-600 shadow-sm'
+                        ? 'bg-white text-slate-950 shadow-sm'
                         : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
@@ -352,14 +372,15 @@ export default function App() {
         {currentTab === 'send' && (
           <div className="max-w-xl mx-auto space-y-6 animate-in fade-in duration-200">
             {!createdItem ? (
-              <div className="bg-white/95 rounded-2xl border border-slate-200 shadow-xl shadow-slate-200/50 p-6 sm:p-8 space-y-6 backdrop-blur-sm">
+              <div className="bg-white rounded-[1.75rem] border border-slate-200/80 shadow-xl shadow-slate-950/[0.05] p-6 sm:p-8 space-y-7">
                 {/* Header */}
                 <div className="text-center space-y-1">
-                  <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                    Send something
+                  <span className="text-xs font-semibold uppercase tracking-[0.16em] text-indigo-600">New transfer</span>
+                  <h1 className="text-3xl sm:text-4xl font-semibold text-slate-950 tracking-[-0.04em]">
+                    Send securely
                   </h1>
                   <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">
-                    Create a temporary clipboard that you can access from another device.
+                    Create a private handoff that expires automatically.
                   </p>
                 </div>
 
@@ -370,7 +391,7 @@ export default function App() {
                     onClick={() => setSendSubTab('text')}
                     className={`flex-1 py-2 text-xs sm:text-sm font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                       sendSubTab === 'text'
-                        ? 'bg-white text-indigo-600 shadow-sm'
+                      ? 'bg-white text-slate-950 shadow-sm'
                         : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
@@ -382,7 +403,7 @@ export default function App() {
                     onClick={() => setSendSubTab('file')}
                     className={`flex-1 py-2 text-xs sm:text-sm font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                       sendSubTab === 'file'
-                        ? 'bg-white text-indigo-600 shadow-sm'
+                      ? 'bg-white text-slate-950 shadow-sm'
                         : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
@@ -419,17 +440,18 @@ export default function App() {
         {currentTab === 'retrieve' && (
           <div className="max-w-xl mx-auto space-y-6 animate-in fade-in duration-200">
             {!retrievedItem ? (
-              <div className="bg-white/95 rounded-2xl border border-slate-200 shadow-xl shadow-slate-200/50 p-6 sm:p-8 space-y-6 backdrop-blur-sm">
+              <div className="bg-white rounded-[1.75rem] border border-slate-200/80 shadow-xl shadow-slate-950/[0.05] p-6 sm:p-8 space-y-7">
                 {/* Heading & Subtitle */}
                 <div className="text-center space-y-1">
-                  <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mx-auto mb-3">
+                  <div className="w-12 h-12 rounded-2xl bg-slate-950 text-white flex items-center justify-center mx-auto mb-4 shadow-lg shadow-slate-950/15">
                     <Download className="w-6 h-6" />
                   </div>
-                  <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                    Retrieve your clipboard
+                  <span className="text-xs font-semibold uppercase tracking-[0.16em] text-indigo-600">Secure pickup</span>
+                  <h1 className="mt-2 text-3xl sm:text-4xl font-semibold text-slate-950 tracking-[-0.04em]">
+                    Retrieve your transfer
                   </h1>
                   <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">
-                    Enter the 6-digit code from your other device.
+                    Enter the private code from your other device.
                   </p>
                 </div>
 
@@ -469,7 +491,7 @@ export default function App() {
                     id="btn-retrieve-submit"
                     onClick={() => performRetrieve(digits.join(''))}
                     disabled={isRetrieving || digits.join('').length !== 6}
-                    className="w-full py-3.5 px-6 rounded-xl font-bold text-base text-white bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-indigo-200/80 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full py-3.5 px-6 rounded-xl font-semibold text-base text-white bg-slate-950 hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-slate-950/15 active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     {isRetrieving ? (
                       <>
