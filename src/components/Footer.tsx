@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clipboard, Shield, FileText, HelpCircle } from 'lucide-react';
+import { Shield, FileText, HelpCircle } from 'lucide-react';
 import { ViewTab } from '../types';
 
 interface FooterProps {
@@ -9,15 +9,17 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
-    <footer className="w-full bg-white border-t border-slate-200 mt-auto py-8">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="w-full mt-auto px-4 py-6 sm:px-6">
+      <div className="glass-panel max-w-6xl mx-auto rounded-3xl px-4 py-7 sm:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand and Tagline */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left gap-1">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center text-white">
-                <Clipboard className="w-4 h-4" />
-              </div>
+              <img
+                src="/logo.png"
+                alt="CloudClip logo"
+                className="h-9 w-9 object-contain transition-transform duration-300 hover:scale-110"
+              />
               <span className="font-bold text-slate-900 text-base">CloudClip</span>
             </div>
             <p className="text-xs text-slate-500 max-w-sm mt-1">

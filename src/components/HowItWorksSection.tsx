@@ -98,7 +98,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ onNavigate
             return (
               <div
                 key={idx}
-                className="bg-white/95 rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-xs hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between"
+                className="glass-panel rounded-2xl p-6 sm:p-7 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 relative overflow-hidden flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -177,7 +177,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ onNavigate
             return (
               <div
                 key={i}
-                className="bg-white/95 rounded-2xl border border-slate-200 p-6 flex items-start gap-4 shadow-xs hover:shadow-sm transition-shadow"
+                className="glass-panel rounded-2xl p-6 flex items-start gap-4 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
               >
                 <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
                   <Icon className="w-5 h-5" />
@@ -205,7 +205,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ onNavigate
             return (
               <div
                 key={idx}
-                className="bg-white/95 rounded-xl border border-slate-200 overflow-hidden transition-all shadow-xs"
+                className="glass-subpanel rounded-xl overflow-hidden transition-all shadow-xs"
               >
                 <button
                   onClick={() => setOpenFaq(isOpen ? null : idx)}

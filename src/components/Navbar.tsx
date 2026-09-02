@@ -16,30 +16,32 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate }) => {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-200/70 bg-white/80 backdrop-blur-xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[4.5rem] flex items-center justify-between">
+    <header className="sticky top-0 z-40 w-full px-3 pt-3 sm:px-5">
+      <div className="glass-panel max-w-7xl mx-auto h-[4.25rem] px-3 sm:px-5 rounded-2xl flex items-center justify-between">
         {/* Brand Logo */}
         <button
           id="nav-brand-logo"
           onClick={() => handleNavClick('home')}
           className="flex items-center gap-2.5 group text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-xl p-1"
         >
-          <div className="w-8 h-8 rounded-xl bg-slate-950 flex items-center justify-center text-white shadow-md shadow-slate-950/15 group-hover:bg-indigo-600 transition-colors">
-            <Clipboard className="w-4 h-4" />
-          </div>
+          <img
+            src="/logo.png"
+            alt="CloudClip logo"
+            className="h-10 w-10 object-contain transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-rotate-3"
+          />
           <span className="font-semibold text-xl leading-tight tracking-[-0.04em] text-slate-950">
             CloudClip
           </span>
         </button>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center rounded-full border border-slate-200/80 bg-white/80 p-1 text-sm font-medium text-slate-600 shadow-sm">
+        <nav className="hidden md:flex items-center rounded-full glass-subpanel p-1 text-sm font-medium text-slate-600">
           <button
             id="nav-link-home"
             onClick={() => handleNavClick('home')}
             className={`rounded-full px-3 py-1.5 transition-colors cursor-pointer ${
               currentTab === 'home'
-                ? 'bg-slate-950 text-white font-semibold'
+                ? 'bg-slate-950/90 text-white font-semibold shadow-sm'
                 : 'hover:text-slate-950'
             }`}
           >
@@ -50,7 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate }) => {
             onClick={() => handleNavClick('send')}
             className={`rounded-full px-3 py-1.5 transition-colors cursor-pointer ${
               currentTab === 'send'
-                ? 'bg-slate-950 text-white font-semibold'
+                ? 'bg-slate-950/90 text-white font-semibold shadow-sm'
                 : 'hover:text-slate-950'
             }`}
           >
@@ -61,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate }) => {
             onClick={() => handleNavClick('retrieve')}
             className={`rounded-full px-3 py-1.5 transition-colors cursor-pointer ${
               currentTab === 'retrieve'
-                ? 'bg-slate-950 text-white font-semibold'
+                ? 'bg-slate-950/90 text-white font-semibold shadow-sm'
                 : 'hover:text-slate-950'
             }`}
           >
@@ -72,7 +74,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate }) => {
             onClick={() => handleNavClick('how-it-works')}
             className={`rounded-full px-3 py-1.5 transition-colors cursor-pointer ${
               currentTab === 'how-it-works'
-                ? 'bg-slate-950 text-white font-semibold'
+                ? 'bg-slate-950/90 text-white font-semibold shadow-sm'
                 : 'hover:text-slate-950'
             }`}
           >
@@ -95,7 +97,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate }) => {
           <button
             id="nav-btn-send"
             onClick={() => handleNavClick('send')}
-            className="px-4 py-2 text-sm font-semibold text-white bg-slate-950 hover:bg-slate-800 rounded-xl shadow-lg shadow-slate-950/15 transition-colors cursor-pointer"
+            className="glass-button-primary px-4 py-2 text-sm font-semibold text-white rounded-xl cursor-pointer"
           >
             <span className="flex items-center gap-1.5">
               <Send className="w-4 h-4" />
@@ -119,7 +121,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onNavigate }) => {
 
       {/* Mobile Dropdown */}
       {mobileMenuOpen && (
-        <div className="sm:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-4 space-y-1 shadow-lg animate-in slide-in-from-top duration-150">
+        <div className="glass-panel sm:hidden mt-2 rounded-2xl px-4 pt-2 pb-4 space-y-1 shadow-lg animate-in slide-in-from-top duration-150">
           <button
             onClick={() => handleNavClick('home')}
             className={`w-full flex items-center gap-2.5 px-3 py-2 text-base font-medium rounded-lg ${

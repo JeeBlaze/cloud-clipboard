@@ -133,7 +133,7 @@ export const FileSendForm: React.FC<FileSendFormProps> = ({ onSubmit, isLoading,
           className={`border-2 border-dashed rounded-2xl p-8 text-center cursor-pointer transition-all duration-200 flex flex-col items-center justify-center min-h-[220px] ${
             isDragOver
               ? 'border-indigo-600 bg-indigo-50/70 scale-[1.01]'
-              : 'border-slate-200 hover:border-indigo-400 bg-slate-50/40 hover:bg-slate-50 shadow-sm shadow-slate-950/[0.02]'
+              : 'glass-subpanel hover:border-indigo-400 hover:bg-white/70 shadow-sm shadow-slate-950/[0.02]'
           }`}
         >
           <div className="w-14 h-14 rounded-2xl bg-slate-950 text-white flex items-center justify-center mb-3.5 shadow-lg shadow-slate-950/10">
@@ -150,7 +150,7 @@ export const FileSendForm: React.FC<FileSendFormProps> = ({ onSubmit, isLoading,
           </span>
         </div>
       ) : (
-        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs space-y-4">
+        <div className="glass-subpanel rounded-2xl p-5 space-y-4">
           <div className="flex items-start justify-between gap-3">
             <div className="flex items-center gap-3.5 min-w-0">
               {previewUrl ? (
@@ -217,7 +217,7 @@ export const FileSendForm: React.FC<FileSendFormProps> = ({ onSubmit, isLoading,
       )}
 
       {/* Expiration and Options Panel */}
-      <div className="bg-slate-50/80 border border-slate-200 rounded-2xl p-4 space-y-3">
+      <div className="glass-subpanel rounded-2xl p-4 space-y-3">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
           <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
             <span>Expires in:</span>
@@ -233,7 +233,7 @@ export const FileSendForm: React.FC<FileSendFormProps> = ({ onSubmit, isLoading,
                 className={`px-2.5 py-1 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
                   expiryMinutes === mins
                     ? 'bg-slate-950 text-white shadow-sm'
-                    : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'
+                    : 'glass-button-secondary text-slate-600'
                 }`}
               >
                 {mins === 60 ? '1 hour' : `${mins} min`}
@@ -289,7 +289,7 @@ export const FileSendForm: React.FC<FileSendFormProps> = ({ onSubmit, isLoading,
         type="submit"
         id="btn-create-file-clipboard"
         disabled={isLoading || !selectedFile}
-        className="w-full py-3.5 px-6 rounded-xl font-semibold text-base text-white bg-slate-950 hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-slate-950/15 active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer"
+        className="glass-button-primary w-full py-3.5 px-6 rounded-xl font-semibold text-base text-white disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
       >
         {isLoading ? (
           <>

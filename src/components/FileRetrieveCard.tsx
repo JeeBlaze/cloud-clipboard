@@ -195,7 +195,7 @@ export const FileRetrieveCard: React.FC<FileRetrieveCardProps> = ({
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto bg-white/95 rounded-2xl border border-slate-200 shadow-xl shadow-slate-200/50 p-6 sm:p-8 animate-in fade-in zoom-in-95 duration-200 backdrop-blur-sm">
+    <div className="glass-panel modal-enter w-full max-w-2xl mx-auto rounded-2xl p-6 sm:p-8">
       {/* Header bar */}
       <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-100">
         <div className="flex items-center gap-2.5">

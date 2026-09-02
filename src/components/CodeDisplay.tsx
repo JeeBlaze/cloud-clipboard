@@ -76,7 +76,7 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({
   const progressPercent = Math.max(0, Math.min(100, (timeLeft / totalDuration) * 100));
 
   return (
-    <div className="w-full max-w-xl mx-auto bg-white/95 rounded-2xl border border-slate-200 shadow-xl shadow-slate-200/50 p-6 sm:p-8 animate-in fade-in zoom-in-95 duration-200 backdrop-blur-sm">
+    <div className="glass-panel modal-enter w-full max-w-xl mx-auto rounded-2xl p-6 sm:p-8">
       {/* Header */}
       <div className="text-center space-y-1.5 pb-5 border-b border-slate-100">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200/60 mb-1">
@@ -93,7 +93,7 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({
 
       {/* Code Box Display */}
       <div className="my-6">
-        <div className="bg-slate-50/90 border border-slate-200 rounded-2xl p-5 sm:p-6 text-center relative overflow-hidden">
+        <div className="glass-subpanel rounded-2xl p-5 sm:p-6 text-center relative overflow-hidden">
           <p className="text-xs uppercase tracking-wider font-bold text-slate-400 mb-2">
             6-Digit Access Code
           </p>
@@ -117,7 +117,7 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({
               className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-150 cursor-pointer ${
                 copied
                   ? 'bg-emerald-600 text-white shadow-sm'
-                  : 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-200/80 active:scale-95'
+                  : 'glass-button-primary text-white'
               }`}
             >
               {copied ? (
@@ -136,7 +136,7 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({
             <button
               id="btn-copy-link"
               onClick={handleCopyLink}
-              className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl font-semibold text-sm text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-sm active:scale-95 transition-all cursor-pointer"
+              className="glass-button-secondary inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl font-semibold text-sm text-slate-700 cursor-pointer"
             >
               {copiedLink ? (
                 <>
@@ -155,7 +155,7 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({
       </div>
 
       {/* Countdown and Expiration notice */}
-      <div className="bg-slate-50/80 rounded-xl p-4 border border-slate-200 mb-6 space-y-2">
+      <div className="glass-subpanel rounded-xl p-4 mb-6 space-y-2">
         <div className="flex items-center justify-between text-xs sm:text-sm font-medium">
           <span className="flex items-center gap-1.5 text-slate-600">
             <Clock className="w-4 h-4 text-indigo-600" />

@@ -1,1 +1,42 @@
 @import "tailwindcss";
+
+:root {
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #172033;
+  background: #f4f7ff;
+  font-synthesis: none;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background: radial-gradient(circle at 10% 2%, rgba(125, 211, 252, .36), transparent 28rem), radial-gradient(circle at 92% 13%, rgba(196, 181, 253, .34), transparent 30rem), linear-gradient(145deg, #f9fbff 0%, #f1f5ff 50%, #f8f7ff 100%);
+}
+
+button, input, textarea, select { -webkit-tap-highlight-color: transparent; }
+
+.app-shell { isolation: isolate; position: relative; overflow: hidden; }
+.app-shell::before, .app-shell::after { content: ""; position: fixed; z-index: -1; width: 32rem; height: 32rem; border-radius: 999px; filter: blur(80px); pointer-events: none; opacity: .34; }
+.app-shell::before { top: 22%; left: -18rem; background: #8bcbff; }
+.app-shell::after { right: -18rem; bottom: 5%; background: #c4b5fd; }
+
+.glass-panel { background: rgba(255, 255, 255, .66); border: 1px solid rgba(255, 255, 255, .82); box-shadow: 0 24px 60px rgba(45, 60, 99, .11), inset 0 1px 0 rgba(255, 255, 255, .72); backdrop-filter: blur(20px) saturate(140%); -webkit-backdrop-filter: blur(20px) saturate(140%); }
+.glass-subpanel { background: rgba(255, 255, 255, .52); border: 1px solid rgba(203, 213, 225, .7); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .72); backdrop-filter: blur(12px) saturate(130%); -webkit-backdrop-filter: blur(12px) saturate(130%); }
+
+.glass-button-primary, .glass-button-secondary { transition: transform 260ms cubic-bezier(.22, 1, .36, 1), box-shadow 260ms cubic-bezier(.22, 1, .36, 1), background-color 260ms ease, border-color 260ms ease; }
+.glass-button-primary { background: linear-gradient(135deg, #172554, #312e81 55%, #4f46e5); border: 1px solid rgba(255, 255, 255, .24); box-shadow: 0 12px 28px rgba(49, 46, 129, .24), inset 0 1px 0 rgba(255, 255, 255, .24); }
+.glass-button-primary:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 17px 32px rgba(49, 46, 129, .3), inset 0 1px 0 rgba(255, 255, 255, .32); }
+.glass-button-secondary { background: rgba(255, 255, 255, .64); border-color: rgba(203, 213, 225, .85); box-shadow: 0 8px 20px rgba(51, 65, 85, .08), inset 0 1px 0 rgba(255, 255, 255, .82); }
+.glass-button-secondary:hover:not(:disabled) { transform: translateY(-2px); background: rgba(255, 255, 255, .9); box-shadow: 0 13px 25px rgba(51, 65, 85, .12), inset 0 1px 0 #fff; }
+.glass-button-primary:active:not(:disabled), .glass-button-secondary:active:not(:disabled) { transform: scale(.98); }
+
+.glass-input { transition: border-color 220ms ease, box-shadow 220ms ease, background-color 220ms ease; }
+.glass-input:focus { border-color: rgba(99, 102, 241, .75) !important; box-shadow: 0 0 0 4px rgba(129, 140, 248, .15), inset 0 1px 0 rgba(255, 255, 255, .75); }
+.page-enter { animation: page-enter 360ms cubic-bezier(.22, 1, .36, 1) both; }
+.modal-enter { animation: modal-enter 280ms cubic-bezier(.22, 1, .36, 1) both; }
+@keyframes page-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes modal-enter { from { opacity: 0; transform: scale(.96) translateY(8px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+@media (max-width: 640px) { .app-shell::before, .app-shell::after { filter: blur(60px); opacity: .24; } }

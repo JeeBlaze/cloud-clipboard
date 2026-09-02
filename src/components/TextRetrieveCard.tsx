@@ -46,7 +46,7 @@ export const TextRetrieveCard: React.FC<TextRetrieveCardProps> = ({
   const lineCount = textContent.split('\n').length;
 
   return (
-    <div className="w-full max-w-2xl mx-auto bg-white/95 rounded-2xl border border-slate-200 shadow-xl shadow-slate-200/50 p-6 sm:p-8 animate-in fade-in zoom-in-95 duration-200 backdrop-blur-sm">
+    <div className="glass-panel modal-enter w-full max-w-2xl mx-auto rounded-2xl p-6 sm:p-8">
       {/* Header bar */}
       <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-100">
         <div className="flex items-center gap-2.5">
@@ -72,7 +72,7 @@ export const TextRetrieveCard: React.FC<TextRetrieveCardProps> = ({
 
       {/* Main Text Content Box */}
       <div className="my-5 relative group">
-        <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 sm:p-5 max-h-[380px] overflow-y-auto font-mono text-sm leading-relaxed text-slate-800 whitespace-pre-wrap break-words select-text">
+        <div className="glass-subpanel rounded-xl p-4 sm:p-5 max-h-[380px] overflow-y-auto font-mono text-sm leading-relaxed text-slate-800 whitespace-pre-wrap break-words select-text">
           {textContent}
         </div>
 
@@ -91,7 +91,7 @@ export const TextRetrieveCard: React.FC<TextRetrieveCardProps> = ({
           className={`py-3.5 px-5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-indigo-200/80 active:scale-95 transition-all duration-150 cursor-pointer ${
             copied
               ? 'bg-emerald-600 text-white'
-              : 'bg-indigo-600 hover:bg-indigo-700 text-white'
+              : 'glass-button-primary text-white'
           }`}
         >
           {copied ? (
@@ -110,7 +110,7 @@ export const TextRetrieveCard: React.FC<TextRetrieveCardProps> = ({
         <button
           id="btn-download-txt"
           onClick={handleDownload}
-          className="py-3.5 px-5 rounded-xl font-semibold text-sm text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-sm active:scale-95 flex items-center justify-center gap-2 transition-all cursor-pointer"
+          className="glass-button-secondary py-3.5 px-5 rounded-xl font-semibold text-sm text-slate-700 flex items-center justify-center gap-2 cursor-pointer"
         >
           <Download className="w-4 h-4 text-slate-500" />
           <span>Download as TXT</span>

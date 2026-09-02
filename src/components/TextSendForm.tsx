@@ -64,7 +64,7 @@ export const TextSendForm: React.FC<TextSendFormProps> = ({ onSubmit, isLoading 
             type="button"
             id="btn-paste-clipboard"
             onClick={handlePasteClipboard}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-700 bg-slate-50 hover:bg-slate-100 rounded-lg border border-slate-200 transition-colors cursor-pointer"
+            className="glass-button-secondary inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-700 rounded-lg cursor-pointer"
           >
             <ClipboardPaste className="w-3.5 h-3.5" />
             Paste from device
@@ -88,7 +88,7 @@ export const TextSendForm: React.FC<TextSendFormProps> = ({ onSubmit, isLoading 
       </div>
 
       {/* Main Textarea */}
-      <div className="relative rounded-2xl border border-slate-200 focus-within:border-indigo-500 focus-within:ring-4 focus-within:ring-indigo-100/70 bg-white transition-all overflow-hidden shadow-sm shadow-slate-950/[0.02]">
+      <div className="glass-subpanel relative rounded-2xl focus-within:border-indigo-500 focus-within:ring-4 focus-within:ring-indigo-100/70 transition-all overflow-hidden">
         <textarea
           id="text-input-area"
           value={text}
@@ -99,7 +99,7 @@ export const TextSendForm: React.FC<TextSendFormProps> = ({ onSubmit, isLoading 
           placeholder="Paste or type something here (notes, links, code snippets, tokens, passwords)..."
           rows={8}
           disabled={isLoading}
-          className="w-full p-4 text-slate-800 placeholder-slate-400 bg-transparent resize-y min-h-[180px] max-h-[480px] outline-none text-base font-normal leading-relaxed"
+          className="glass-input w-full p-4 text-slate-800 placeholder-slate-400 bg-transparent resize-y min-h-[180px] max-h-[480px] outline-none text-base font-normal leading-relaxed"
         />
 
         {/* Text stats footer */}
@@ -116,7 +116,7 @@ export const TextSendForm: React.FC<TextSendFormProps> = ({ onSubmit, isLoading 
       </div>
 
       {/* Expiration and Options Panel */}
-      <div className="bg-slate-50/80 border border-slate-200 rounded-2xl p-4 space-y-3">
+      <div className="glass-subpanel rounded-2xl p-4 space-y-3">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
           <label htmlFor="expiry-select" className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
             <span>Expires in:</span>
@@ -132,7 +132,7 @@ export const TextSendForm: React.FC<TextSendFormProps> = ({ onSubmit, isLoading 
                 className={`px-2.5 py-1 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
                   expiryMinutes === mins
                     ? 'bg-slate-950 text-white shadow-sm'
-                    : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'
+                    : 'glass-button-secondary text-slate-600'
                 }`}
               >
                 {mins === 60 ? '1 hour' : `${mins} min`}
@@ -181,7 +181,7 @@ export const TextSendForm: React.FC<TextSendFormProps> = ({ onSubmit, isLoading 
         type="submit"
         id="btn-create-text-clipboard"
         disabled={isLoading || !text.trim()}
-        className="w-full py-3.5 px-6 rounded-xl font-semibold text-base text-white bg-slate-950 hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-slate-950/15 active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer"
+        className="glass-button-primary w-full py-3.5 px-6 rounded-xl font-semibold text-base text-white disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
       >
         {isLoading ? (
           <>

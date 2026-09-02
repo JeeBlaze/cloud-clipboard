@@ -143,10 +143,10 @@ export const CodeInput: React.FC<CodeInputProps> = ({
             onKeyDown={(e) => handleKeyDown(idx, e)}
             onPaste={handlePaste}
             aria-label={`Digit ${idx + 1}`}
-            className={`w-11 h-14 sm:w-14 sm:h-16 text-center text-2xl sm:text-3xl font-mono font-bold rounded-xl border-2 transition-all duration-150 outline-none select-none ${
+            className={`glass-input w-11 h-14 sm:w-14 sm:h-16 text-center text-2xl sm:text-3xl font-mono font-bold rounded-xl border-2 transition-all duration-150 outline-none select-none ${
               isFilled
                 ? 'border-indigo-600 bg-indigo-50/40 text-indigo-950 shadow-xs'
-                : 'border-slate-200 bg-white text-slate-900 hover:border-slate-300 focus:border-indigo-600 focus:ring-4 focus:ring-indigo-100'
+                : 'border-white/80 bg-white/60 text-slate-900 hover:border-slate-300 focus:border-indigo-600 focus:ring-4 focus:ring-indigo-100'
             } ${disabled ? 'opacity-50 cursor-not-allowed bg-slate-100' : ''}`}
           />
         );
@@ -154,4 +154,3 @@ export const CodeInput: React.FC<CodeInputProps> = ({
     </div>
   );
 };
-

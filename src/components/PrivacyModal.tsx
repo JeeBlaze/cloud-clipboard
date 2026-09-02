@@ -8,7 +8,7 @@ interface PrivacyModalProps {
 
 export const PrivacyModal: React.FC<PrivacyModalProps> = ({ onBack }) => {
   return (
-    <div className="w-full max-w-3xl mx-auto bg-white/95 rounded-2xl border border-slate-200 shadow-xl shadow-slate-200/50 p-6 sm:p-10 space-y-8 animate-in fade-in backdrop-blur-sm">
+    <div className="glass-panel modal-enter w-full max-w-3xl mx-auto rounded-2xl p-6 sm:p-10 space-y-8">
       <div className="flex items-center justify-between border-b border-slate-100 pb-5">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
@@ -22,7 +22,7 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({ onBack }) => {
 
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer transition-colors"
+          className="glass-button-secondary inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 cursor-pointer"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           Back
@@ -74,7 +74,7 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({ onBack }) => {
       <div className="pt-6 border-t border-slate-100 text-center">
         <button
           onClick={onBack}
-          className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm rounded-xl shadow-lg shadow-indigo-200/80 active:scale-95 transition-all cursor-pointer"
+          className="glass-button-primary px-6 py-2.5 text-white font-semibold text-sm rounded-xl cursor-pointer"
         >
           Return to CloudClip
         </button>
