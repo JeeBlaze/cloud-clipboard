@@ -54,9 +54,12 @@ export default function App() {
     '',
     '',
   ]);
+
   const [isRetrieving, setIsRetrieving] = useState(false);
+
   const [retrievedItem, setRetrievedItem] =
     useState<RetrieveClipboardResponse['item'] | null>(null);
+
   const [retrieveError, setRetrieveError] = useState<{
     title: string;
     message: string;
@@ -78,7 +81,9 @@ export default function App() {
     }
   }, []);
 
+  // =========================================================
   // 1. SEND TEXT HANDLER
+  // =========================================================
   const handleSendText = async (
     textContent: string,
     expiryMinutes: number,
@@ -140,7 +145,9 @@ export default function App() {
     }
   };
 
-  // 2. SEND FILE HANDLER WITH CHUNKED STREAMING & ACCURATE PROGRESS
+  // =========================================================
+  // 2. SEND FILE HANDLER
+  // =========================================================
   const handleSendFile = async (
     file: File,
     expiryMinutes: number,
@@ -166,7 +173,9 @@ export default function App() {
     }
   };
 
+  // =========================================================
   // 3. DIGITS CHANGE HANDLER
+  // =========================================================
   const handleDigitsChange = (newDigits: string[]) => {
     setDigits(newDigits);
 
@@ -184,7 +193,9 @@ export default function App() {
     }
   };
 
+  // =========================================================
   // 4. RETRIEVE HANDLER
+  // =========================================================
   const performRetrieve = async (codeToRetrieve?: string) => {
     const code = (
       typeof codeToRetrieve === 'string'
@@ -299,23 +310,32 @@ export default function App() {
     }
   };
 
+  // =========================================================
+  // RESET RETRIEVE
+  // =========================================================
   const handleResetRetrieve = () => {
     setDigits(['', '', '', '', '', '']);
     setRetrievedItem(null);
     setRetrieveError(null);
   };
 
+  // =========================================================
+  // RESET SEND
+  // =========================================================
   const handleResetSend = () => {
     setCreatedItem(null);
   };
 
+  // =========================================================
+  // MAIN APP
+  // =========================================================
   return (
     <div className="relative min-h-screen flex flex-col bg-[#f7f8fc] font-sans text-slate-950 selection:bg-indigo-600 selection:text-white">
 
       {/* =========================================================
-          CLOUDCLIPBOARD LOGO
+          CLOUDCLIPBOARD LOGO — TOP LEFT
           ========================================================= */}
-      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50">
+      <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-50">
         <img
           src="/logo.png"
           alt="CloudClipboard"
@@ -330,6 +350,7 @@ export default function App() {
         currentTab={currentTab}
         onNavigate={(tab) => {
           setCurrentTab(tab);
+
           window.scrollTo({
             top: 0,
             behavior: 'smooth',
@@ -376,6 +397,7 @@ export default function App() {
                   id="hero-btn-send"
                   onClick={() => {
                     setCurrentTab('send');
+
                     window.scrollTo({
                       top: 0,
                       behavior: 'smooth',
@@ -391,6 +413,7 @@ export default function App() {
                   id="hero-btn-retrieve"
                   onClick={() => {
                     setCurrentTab('retrieve');
+
                     window.scrollTo({
                       top: 0,
                       behavior: 'smooth',
@@ -774,13 +797,17 @@ export default function App() {
 
       </main>
 
-      {/* Supabase Schema Modal */}
+      {/* =========================================================
+          SUPABASE SCHEMA MODAL
+          ========================================================= */}
       <SqlSchemaModal
         isOpen={schemaModalOpen}
         onClose={() => setSchemaModalOpen(false)}
       />
 
-      {/* Footer */}
+      {/* =========================================================
+          FOOTER
+          ========================================================= */}
       <Footer
         onNavigate={(tab) => {
           setCurrentTab(tab);
